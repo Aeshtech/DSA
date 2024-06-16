@@ -1,5 +1,3 @@
-package easy.linkedList;
-
 //Link - https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
 
 import java.util.HashSet;
@@ -7,7 +5,7 @@ import java.util.HashSet;
 public class RemoveLoop {
 
     // Function that detects and remove loop in the list (GFG Method 3)
-    //Time Complexity - O(n) and Space Complexity - O(1)
+    // Time Complexity - O(n) and Space Complexity - O(1)
     static void detectAndRemoveLoop(Node node) {
 
         // If list is empty or has only one node
@@ -52,11 +50,10 @@ public class RemoveLoop {
         }
     }
 
-
-    //Detect and Remove loop using Hashset....Easy Implementation but take more space.
-    //Time Complexity - O(n) and Space Complexity - O(1)
-    static boolean removeLoopUsingHS(Node h)
-    {
+    // Detect and Remove loop using Hashset....Easy Implementation but take more
+    // space.
+    // Time Complexity - O(n) and Space Complexity - O(1)
+    static boolean removeLoopUsingHS(Node h) {
         HashSet<Node> s = new HashSet<Node>();
         Node prev = null;
         while (h != null) {
@@ -89,14 +86,14 @@ public class RemoveLoop {
         LL.addLast(4);
         LL.addLast(10);
 
-        //making a loop by assigning the pointing last next to the head node.
+        // making a loop by assigning the pointing last next to the head node.
         head.next.next.next.next.next = head.next.next;
 
         detectAndRemoveLoop(head);
         System.out.println("Linkedlist after removing the loop: ");
 
-//        removeLoopUsingHS(head);
-//        System.out.println("Linkedlist after removing the loop using HashSet: ");
+        // removeLoopUsingHS(head);
+        // System.out.println("Linkedlist after removing the loop using HashSet: ");
 
         LL.printList(head, "int");
     }

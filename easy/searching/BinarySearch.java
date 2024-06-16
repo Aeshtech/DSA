@@ -1,30 +1,28 @@
-package easy.searching;
-
 /*----------------Notes------------------
 * Binary Search is a searching algorithm to search element in o(logN) time complexity by using divide and conquer technique.  */
 
-import easy.sorting.UtilityClass;
+import sorting.UtilityClass;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class BinarySearch {
 
-    public static int binarySearchingRecursively(int[] arr,int left,int right,int search){
+    public static int binarySearchingRecursively(int[] arr, int left, int right, int search) {
 
         // BinarySearch algorithm needs sorted array to search an element.
         Arrays.sort(arr);
 
-        if(left <= right){
-            int mid = left + (right - left)/2;
+        if (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if(arr[mid] == search)  // if the search found at middle element.
+            if (arr[mid] == search) // if the search found at middle element.
                 return mid;
 
-            if(search < arr[mid]){
-                return binarySearchingRecursively(arr,left,mid-1,search);
-            }else{
-                return binarySearchingRecursively(arr,mid+1,right,search);
+            if (search < arr[mid]) {
+                return binarySearchingRecursively(arr, left, mid - 1, search);
+            } else {
+                return binarySearchingRecursively(arr, mid + 1, right, search);
             }
         }
 
@@ -32,15 +30,15 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] arr =  UtilityClass.inputArray();
+        int[] arr = UtilityClass.inputArray();
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter a number to search in an array = ");
         int search = sc.nextInt();
 
         int left = 0, right = arr.length - 1;
-        int index = binarySearchingRecursively(arr,left,right,search);
-        System.out.println("The searched element "+search+" found at index = "+index);
+        int index = binarySearchingRecursively(arr, left, right, search);
+        System.out.println("The searched element " + search + " found at index = " + index);
 
     }
 }

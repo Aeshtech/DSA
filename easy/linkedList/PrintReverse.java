@@ -1,29 +1,30 @@
-package easy.linkedList;
-
 import java.util.*;
 
 //Printing elements in reverse order of linkedlist is different from ReverseLL.
-class LinkedList{
+class LinkedList {
     Node head;
-    void add(int data){
+
+    void add(int data) {
         Node new_node = new Node(data);
-        if(head == null){
+        if (head == null) {
             head = new_node;
             return;
         }
         Node curr = head;
-        while(curr.next != null)
+        while (curr.next != null)
             curr = curr.next;
         curr.next = new_node;
     }
 }
-public class PrintReverse  {
-    public static void reverse(Node curr){
-        if(curr.next != null)
+
+public class PrintReverse {
+    public static void reverse(Node curr) {
+        if (curr.next != null)
             reverse(curr.next);
         System.out.print(curr.intD + " ");
     }
-    public static void main(String args[]){
+
+    public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
         LinkedList list = new LinkedList();
 
@@ -31,10 +32,11 @@ public class PrintReverse  {
         int n = input.nextInt();
 
         System.out.println("Please add all the elements separated by spaces.");
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             int x = input.nextInt();
             list.add(x);
         }
+        input.close();
         System.out.println("Printing Linkedlist in reverse order :");
         reverse(list.head);
         System.out.println("");

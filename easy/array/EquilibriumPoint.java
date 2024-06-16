@@ -1,6 +1,6 @@
-package easy.array;
+package array;
 
-import easy.sorting.UtilityClass;
+import sorting.UtilityClass;
 //Link (Method 2) - https://www.geeksforgeeks.org/equilibrium-index-of-an-array/?ref=lbp
 
 // Time Complexity: O(n)

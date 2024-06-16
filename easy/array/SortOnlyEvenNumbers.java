@@ -1,6 +1,6 @@
-package easy.array;
+package array;
 
-import easy.sorting.UtilityClass;
+import sorting.UtilityClass;
 
 import java.util.Collections;
 import java.util.Vector;
@@ -21,35 +21,36 @@ In Above output all odd numbers are at their same positions and all even numbers
 
 public class SortOnlyEvenNumbers {
 
-    public static void sortOnlyEvenNumbers(int[] arr){
-        Vector<Integer> temp = new Vector<>();  //it will used to store all even numbers from the array.
+    public static void sortOnlyEvenNumbers(int[] arr) {
+        Vector<Integer> temp = new Vector<>(); // it will used to store all even numbers from the array.
 
-        int i=0;
-        while (i<arr.length){
-            if(arr[i] % 2 == 0)
-                temp.add(arr[i]);  //adding the even numbers in temp container
+        int i = 0;
+        while (i < arr.length) {
+            if (arr[i] % 2 == 0)
+                temp.add(arr[i]); // adding the even numbers in temp container
             i++;
         }
-        //Now sort all even numbers using built in method.
+        // Now sort all even numbers using built in method.
         Collections.sort(temp);
 
-        //Now replace the even numbers from the given array with the even numbers in the temporary container one by one.
-        int j=0,k=0;
-        while (j<arr.length){
-            if(arr[j] % 2 ==0){         //check for only even numbers in arr
-                arr[j] = temp.get(k);  //replacing the even num of arr with the sorted even num of temp container.
+        // Now replace the even numbers from the given array with the even numbers in
+        // the temporary container one by one.
+        int j = 0, k = 0;
+        while (j < arr.length) {
+            if (arr[j] % 2 == 0) { // check for only even numbers in arr
+                arr[j] = temp.get(k); // replacing the even num of arr with the sorted even num of temp container.
                 k++;
             }
             j++;
         }
     }
 
-
     public static void main(String[] args) {
         int[] arr = UtilityClass.inputArray();
         UtilityClass.printArray(arr);
 
-        //invoking our method to sort only even numbers from the array and printing updated arr
+        // invoking our method to sort only even numbers from the array and printing
+        // updated arr
         sortOnlyEvenNumbers(arr);
         UtilityClass.printArray(arr);
 

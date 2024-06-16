@@ -1,14 +1,12 @@
-package easy.linkedList;
-
 public class ReverseLL {
 
-    //Reverse of LinkedList
-    public static Node reverseList(Node h){
+    // Reverse of LinkedList
+    public static Node reverseList(Node h) {
         Node prev = null;
         Node next = null;
-        Node current = h ;   //temporary node containing head ref
+        Node current = h; // temporary node containing head ref
 
-        while (current != null){
+        while (current != null) {
             // Before changing the next of the current,
             // keep the next node
             next = current.next;
@@ -19,10 +17,9 @@ public class ReverseLL {
             prev = current;
             current = next;
         }
-        h = prev;   //now prev pointing to the last node so we update our head with prev
+        h = prev; // now prev pointing to the last node so we update our head with prev
         return h;
     }
-
 
     public static void main(String[] args) {
 
@@ -30,10 +27,10 @@ public class ReverseLL {
         LL.addLast("Shiv");
         LL.addLast("Shankar");
         System.out.println("List before reversing :");
-        LL.printList(head,"String");
+        LL.printList(head, "String");
 
         System.out.println("\nList after reversed : ");
-        Node newHead = reverseList(head);    //here we getting a new head which is pointing to the end of the LL
-        LL.printList(newHead,"String");
+        Node newHead = reverseList(head); // here we getting a new head which is pointing to the end of the LL
+        LL.printList(newHead, "String");
     }
 }
