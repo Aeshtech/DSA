@@ -22,20 +22,6 @@ public class InsertionSort {
         return arr;
     }
 
-    // Insertion Sort using iterative swapping
-    public static int[] insertionSortingBySwapping(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int j = i;
-            while (j > 0) {
-                if (arr[j] < arr[j - 1]) {
-                    UtilityClass.swapping(arr, j, j - 1);
-                }
-                j = j - 1;
-            }
-        }
-        return arr;
-    }
-
     public static void main(String[] args) {
         // taking input arr elements using prebuilt method and assigning into an arr.
         // int[] arr = UtilityClass.inputArray();
@@ -45,10 +31,10 @@ public class InsertionSort {
         // UtilityClass.printArray(insertionSorting(arr));
 
         int[] arr = UtilityClass.inputArray();
-        System.out.println("\nUnsorted array elements are: ");
+        System.out.println("\nUnsorted Array: ");
         UtilityClass.printArray(arr);
-        System.out.println("\nSorted array elements using iterative swapping: ");
-        UtilityClass.printArray(insertionSortingBySwapping(arr));
+        System.out.println("\nSorted Array: ");
+        UtilityClass.printArray(insertionSorting(arr));
 
     }
 }
