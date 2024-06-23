@@ -5,17 +5,24 @@ package sorting;
 
 public class SelectionSort {
     public static int[] selectionSorting(int[] arr) {
-        // Passes: moving boundary of unsorted elements ahead one by one
+
+        // One by one move boundary of unsorted subarray
         for (int i = 0; i < arr.length - 1; i++) {
-            // we putting outer loop index in min so that inner loop don't compare elements
-            // with ele in already sorted part.
-            // i.e min
-            int min = i;
+            // flag to break from outer loop if no swap occured (i.e elements sorted)
+            boolean isSwapped = false;
+            // Find the minimum element in unsorted array
+            int minIdx = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) { // this means it need to be a swap
+                if (arr[j] < arr[minIdx]) { // this means it need to be a swap
                     // -----swapping----
-                    UtilityClass.swapping(arr, j, min);
+                    // minIdx = j;
+                    UtilityClass.swapUsingTemp(arr, j, minIdx);
+                    isSwapped = true;
                 }
+            }
+
+            if (!isSwapped) {
+                break;
             }
         }
         return arr;
