@@ -1,5 +1,5 @@
-//Link - https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
 
+//Link - https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
 import java.util.HashSet;
 
 public class DetectLoop {

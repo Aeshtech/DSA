@@ -31,10 +31,10 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] arr = UtilityClass.inputArray();
-
         Scanner sc = new Scanner(System.in);
-        System.out.print("Please enter a number to search in an array = ");
+        System.out.println("Please enter a number to search in an array = ");
         int search = sc.nextInt();
+        sc.close();
 
         int left = 0, right = arr.length - 1;
         int index = binarySearchingRecursively(arr, left, right, search);

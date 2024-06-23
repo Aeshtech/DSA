@@ -13,7 +13,6 @@ public class UtilityClass {
         for (int i = 0; i < len; i++) {
             arr[i] = sc.nextInt();
         }
-        sc.close();
         return arr;
     }
 

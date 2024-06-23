@@ -32,6 +32,7 @@ public class ReverseArrayAfterPos {
             // System.out.print("Please enter a element = ");
             arrli.add(sc.nextInt());
         }
+        sc.close();
         System.out.println(arrli);
         System.out.println(reverseArray(arrli, 3));
     }
