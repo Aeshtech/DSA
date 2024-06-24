@@ -5,48 +5,40 @@ package sorting;
 
 public class MergeSort {
 
-    public static int[] mergeSorting(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSorting(arr, left, mid); // recursively invoking mergesort by passing mid index at the right parameter
-            mergeSorting(arr, mid + 1, right); // recursively invoking mergesort by passing mid+1 index at left
-                                               // parameter
-            merge(arr, left, mid, right); // invoking merge method
-        }
-        return arr;
-    }
-
     public static int[] merge(int[] arr, int left, int mid, int right) {
-        int[] temp = new int[arr.length]; // making temp arr to store sorted elements.
-
-        int i = left, j = mid + 1, x = left; // 'x' is the iterator over temp arr
+        int[] tempArr = new int[right - left + 1];
+        int x = 0, i = left, j = mid + 1;
 
         while (i <= mid && j <= right) {
-            if (arr[i] <= arr[j]) { // we are doing it <= because it may be less or same element in another half
-                                    // part.
-                temp[x++] = arr[i++]; // storing first halve element in temp arr and incrementing i.
-            } else { // if arr[i] not less than equal to arr[j] than control comes to else part
-                temp[x++] = arr[j++]; // storing second halve element in temp arr and incrementing j.
+            if (arr[i] <= arr[j]) {
+                tempArr[x++] = arr[i++];
+            } else {
+                tempArr[x++] = arr[j++];
             }
         }
 
-        // from below two while loops only one will be run for the smaller half i.e
-        // subArray
-        // filling rest of elements from first halve in temp arr if any.
         while (i <= mid) {
-            temp[x++] = arr[i++];
+            tempArr[x++] = arr[i++];
         }
 
-        // filling rest of elements from second halve in temp arr if any.
         while (j <= right) {
-            temp[x++] = arr[j++];
+            tempArr[x++] = arr[j++];
         }
 
-        // now copy all the sorted elements of temp arr into original array
-        for (i = left; i <= right; i++) {
-            arr[i] = temp[i];
+        for (int k = 0; k < tempArr.length; k++) {
+            arr[left + k] = tempArr[k];
         }
 
+        return arr;
+    }
+
+    public static int[] mergeSorting(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            mergeSorting(arr, left, mid);
+            mergeSorting(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
         return arr;
     }
 
