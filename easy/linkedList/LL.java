@@ -19,7 +19,7 @@ class Node {
 }
 
 public class LL {
-    // references to the first node not a separate node.
+    // create first node which will work as a head of the linked list
     static Node head;
 
     // ------method to print the list.
