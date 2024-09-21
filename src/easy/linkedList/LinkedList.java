@@ -4,23 +4,6 @@ package easy.linkedList;
  * LinkedList -> A linked list is a linear collection of data nodes in a non-contiguous memory locations, in which each node
  * contain two things first is "Data" and second thing is  "Pointer"/"Reference" to the next node.  */
 
-class Node {
-    String strD; // data variable
-    int intD; // variable of int data type
-    Node next; // next ref var of Node class type.
-
-    Node(String d) { // constructor
-        strD = d; // initialising data to the node.
-        next = null; // initially next store null
-    }
-
-    Node(int d) { // constructor
-        intD = d; // initialising data to the node.
-        next = null; // initially next store null
-    }
-
-}
-
 public class LinkedList {
     // create first node which will work as a head of the linked list
     static Node head;
