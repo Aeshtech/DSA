@@ -5,7 +5,7 @@ package easy.linkedList;
  * contain two things first is "Data" and second thing is  "Pointer"/"Reference" to the next node.  */
 
 public class LinkedList {
-    // create first node which will work as a head of the linked list
+    // head is the pointer to the first node in linked-list
     static Node head;
 
     // ------method to print the list.
