@@ -8,7 +8,7 @@ public class ReverseLL {
         Node next = null;
         Node current = h; // temporary node containing head ref
 
-        while (current != null) {
+        while (current.next != null) {
             // Before changing the next of the current,
             // keep the next node
             next = current.next;
