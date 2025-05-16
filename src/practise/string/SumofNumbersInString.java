@@ -4,27 +4,28 @@ public class SumofNumbersInString {
     // Function to calculate sum of all numbers present in a string.
     public static long findSum(String str) {
         long sum = 0;
-        String temp = "0"; // temporary string for holding consecutive numbers in string.
+        StringBuilder temp = new StringBuilder();
 
-        // traverse till the length of string
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
 
-            if (c >= '0' && c <= '9') { // if current char is numeric than add in temp string
-                temp = temp + c;
-            } else { // else parse the temp string into long and add into sum and then assign to sum
-                     // itself
-                sum += Long.parseLong(temp);
-                temp = "0"; // reset temp string to '0' again for storing next consecutive numeric values if
-                            // any.
+            if (Character.isDigit(c)) {
+                temp.append(c);
+            } else if (temp.length() > 0) {
+                sum += Long.parseLong(temp.toString());
+                temp.setLength(0);
             }
         }
-        sum += Long.parseLong(temp); // at last parse the temp again and add to sum and then assign to sum itself
+
+        if (temp.length() > 0) {
+            sum += Long.parseLong(temp.toString());
+        }
+
         return sum;
     }
 
     public static void main(String[] args) {
-        String str = "1abc23";
+        String str = "1abc5asa7aas9";
         System.out.print("The sum of numbers in string is = " + findSum(str));
     }
 }
