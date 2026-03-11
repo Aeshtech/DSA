@@ -6,31 +6,29 @@ package practise.sorting;
 public class MergeSort {
 
     public static void merge(int[] arr, int left, int mid, int right) {
-        int[] tempArr = new int[right - left + 1];
-        int x = 0,
-                leftIdx = left,
-                rightIdx = mid + 1;
+        int[] temp = new int[right - left + 1];
+        int i = left, j = mid + 1, 
+        k = 0; //iterator for temp arr
 
-        while (leftIdx <= mid && rightIdx <= right) {
-            if (arr[leftIdx] <= arr[rightIdx]) {
-                tempArr[x++] = arr[leftIdx++];
-            } else {
-                tempArr[x++] = arr[rightIdx++];
-            }
+        while (i <= mid && j <= right) {
+            temp[k++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
         }
 
-        while (leftIdx <= mid) {
-            tempArr[x++] = arr[leftIdx++];
+        while (i <= mid) {
+            temp[k++] = arr[i++];
         }
 
-        while (rightIdx <= right) {
-            tempArr[x++] = arr[rightIdx++];
+        while (j <= right) {
+            temp[k++] = arr[j++];
         }
 
-        // putting back sorted arr into original arr
-        for (int k = 0; k < tempArr.length; k++) {
-            arr[left+k] = tempArr[k];
-        }
+        // putting back sorted temp elements into original arr
+        System.arraycopy(temp, 0, arr, left, temp.length);
+        
+        // //looping way of copy
+        // for (int m = 0; m < temp.length; m++) { 
+        //     arr[left+m] = temp[m];
+        // }
     }
 
     public static void mergeSorting(int[] arr, int left, int right) {
@@ -49,6 +47,7 @@ public class MergeSort {
         // initializing left,right index of array.
         int left = 0, right = arr.length - 1;
         mergeSorting(arr, left, right);
+        
 
         System.out.println("\nThe Sorted array elements are: ");
         UtilityClass.printArray(arr);
