@@ -1,29 +1,22 @@
 package practise.sorting;
-/* -----------------------Notes----------------------
-*  In Selection Sorting, we do find the minimum ele in the array excluding first ele and placed at first location
-*  and so on find next minimum element in array excluding from already sorted elements and placed at right location   */
+
+/* Selection Sort is a comparison-based sorting algorithm. It sorts by repeatedly selecting the smallest (or largest) element from the unsorted portion and swapping it with the first unsorted element.
+
+1. Find the smallest element and swap it with the first element. This way we get the smallest element at its correct position.
+2. Then find the smallest among remaining elements (or second smallest) and swap it with the second element.
+3. We keep doing this until we get all elements moved to correct position. */
 
 public class SelectionSort {
     public static int[] selectionSorting(int[] arr) {
-
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < arr.length - 1; i++) {
-            // flag to break from outer loop if no swap occured (i.e elements sorted)
-            boolean isSwapped = false;
-            // Find the minimum element in unsorted array
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
             int minIdx = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minIdx]) { // this means it need to be a swap
-                    // -----swapping----
-                    // minIdx = j;
-                    UtilityClass.swapUsingTemp(arr, j, minIdx);
-                    isSwapped = true;
+            for (int j = i + 1; j <= n - 1; j++) {
+                if (arr[j] < arr[minIdx]) {
+                    minIdx = j;
                 }
             }
-
-            if (!isSwapped) {
-                break;
-            }
+            UtilityClass.swapUsingTemp(arr, i, minIdx);
         }
         return arr;
     }
